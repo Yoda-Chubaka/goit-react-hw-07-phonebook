@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { toastifyOptions } from 'utils/toastifyOptions';
 import { ContactItem } from "components/ContactItem/ContactItem"
 import { ContactListStyle } from "./ContactsList.styled"
-import { Info } from './ContactList.styled';
+import { Info } from './ContactsList.styled';
 
 // import { deleteContact } from 'redux/contacts/contacts-slice';
 // import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
