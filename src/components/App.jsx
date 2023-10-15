@@ -4,6 +4,7 @@ import { Filter } from "./Filter/Filter";
 import { Loader } from "./Loader/Loader";
 import { Error } from "./Error/Error";
 import { Container } from "./App.styled";
+import { Section } from "./App.styled";
 import { useSelector } from "react-redux";
 import { getError, getIsLoading, getPhoneBookValue } from "redux/phoneBookSlice";
 
@@ -14,12 +15,14 @@ export const App = () => {
 
   return (
     <Container>
-      <h1>Phonebook</h1>
+      <Section>PhoneBook</Section>
       <Form />
-      <h2>Contacts</h2>
+      <Section>
+      Contacts
+      </Section>
       {phoneBook.length === 0 && !error && !isLoading ? "You don't have any contacts yet" : <Filter />}
       {isLoading && <Loader />}
-      {error ? <Error /> : <ContactsList />}
+        {error ? <Error /> : <ContactsList />}
     </Container>
   )
 };

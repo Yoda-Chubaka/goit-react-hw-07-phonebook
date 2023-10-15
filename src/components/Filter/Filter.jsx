@@ -1,6 +1,8 @@
-import { LabelStyle, InputStyle } from 'components/App.styled';
+import { LabelStyle} from 'components/App.styled';
+import { FilterContainer } from './Filter.styled';
 import { useDispatch, useSelector } from "react-redux";
 import { filterSet, getFilter } from "redux/filterSlice";
+import { Input } from './Filter.styled'
 
 export const Filter = () => {
     const dispatch = useDispatch();
@@ -12,16 +14,19 @@ export const Filter = () => {
     };
     
     return (
+      <FilterContainer>
         <LabelStyle>
-            Find contacts by name:
-            <InputStyle
+            Find contacts by name
+            <Input
                 type="text"
                 name="filter"
+                placeholder = "search"
                 value={filterPhoneBook}
                 title="Enter the name"
                 required
                 onChange={onChangeFilter}
             />
         </LabelStyle>
+        </FilterContainer>
     );
 };

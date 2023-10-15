@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ContactListStyle = styled.ul`
     padding: 0px;
-    border: 1px solid #31d37a;
     width: 422px;
 `;
 
@@ -11,6 +10,5 @@ export const ContactItemStyle = styled.li`
     justify-content: space-between;
     align-items: center;
     width: 400px;
-    padding: 10px;
-    border: 1px solid #31d37a;
+    /* padding: 10px; */
 `;

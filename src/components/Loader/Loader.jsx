@@ -1,14 +1,15 @@
-import { Dna } from  'react-loader-spinner'
+import { Circles } from  'react-loader-spinner'
 import { WrapperLoader } from './Loader.styled';
 
 export const Loader = () =>
 (<WrapperLoader>
-    <Dna
+    <Circles
   visible={true}
   height="80"
   width="80"
-  ariaLabel="dna-loading"
+  color = "grey"
+  ariaLabel="circles-loading"
   wrapperStyle={{}}
-  wrapperClass="dna-wrapper"
+  wrapperClass=""
 />
 </WrapperLoader>);
