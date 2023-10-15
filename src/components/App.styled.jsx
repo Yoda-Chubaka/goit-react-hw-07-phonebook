@@ -1,21 +1,32 @@
 import styled from 'styled-components';
 
+export const Container = styled.div `
+    width: 500px;
+    margin: 0px auto;
+`
+
+export const LabelStyle = styled.label`
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding: 4px 5px;
+`;
+
+export const InputStyle = styled.input `
+    height: 25px;
+    padding: 4px;
+    width: 200px;
+    border-radius: 5px;
+`;
+
 export const ButtonStyle = styled.button`
-padding-top: ${p => p.theme.space[2]}px;
-  padding-bottom: ${p => p.theme.space[1]}px;
-  padding-left: ${p => p.theme.space[3]}px;
-  padding-right: ${p => p.theme.space[3]}px;
-
-  border: none;
-  outline: none;
-  border-radius: 8px;
-
-  color: ${p => p.theme.colors.black};
-  background-color: ${p => p.theme.colors.muted};
-
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    color: white;
-  }
+height: 30px;
+width: 100px;
+padding: 4px;
+font-weight: 500;
+background-color: #a2fccb;
+&:hover {
+        background-color: #31d37a;
+    }
 `;

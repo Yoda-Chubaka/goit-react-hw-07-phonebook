@@ -1,31 +1,25 @@
-// import { useSelector } from 'react-redux';
-import { GlobalStyle } from './GlobalStyle';
-import { Layout } from './Layout/Layout';
-import { Section } from './Section/Section';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { ContactList } from './ContactList/ContactList';
-import { Title } from './Title/Title';
-import Filter from './Filter/Filter';
-// import { getContacts } from 'redux/contacts/contacts-selectors';
+import { Form } from "./Form/Form";
+import { ContactsList } from "./ContactsList/ContactsList";
+import { Filter } from "./Filter/Filter";
+import { Loader } from "./Loader/Loader";
+import { Error } from "./Error/Error";
+import { Container } from "./App.styled";
+import { useSelector } from "react-redux";
+import { getError, getIsLoading, getPhoneBookValue } from "redux/phoneBookSlice";
 
 export const App = () => {
-  // const contacts = useSelector(getContacts);
-  return (
-    <>
-    <Layout>
-      <Section title="PhoneBook">
-        <ContactForm />
-            <Title title="Contacts" />
-            <Filter />
-            <ContactList />
-      </Section>
-      <ToastContainer />
-      <GlobalStyle />
-      </Layout>
-      </>
-  );
-};
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
+  const phoneBook = useSelector(getPhoneBookValue);
 
-export default App;
+  return (
+    <Container>
+      <h1>Phonebook</h1>
+      <Form />
+      <h2>Contacts</h2>
+      {phoneBook.length === 0 && !error && !isLoading ? "You don't have any contacts yet" : <Filter />}
+      {isLoading && <Loader />}
+      {error ? <Error /> : <ContactsList />}
+    </Container>
+  )
+};

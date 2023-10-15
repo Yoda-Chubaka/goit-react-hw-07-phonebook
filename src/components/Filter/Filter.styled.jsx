@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LabelDescr = styled.label`
+export const LabelStyle = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -11,7 +11,7 @@ export const LabelDescr = styled.label`
   color: ${props => props.theme.colors.black};
 `;
 
-export const LabelWrapper = styled.div`
+export const InputStyle = styled.div`
   display: flex;
   gap: 8px;
   margin-left: 8px;
