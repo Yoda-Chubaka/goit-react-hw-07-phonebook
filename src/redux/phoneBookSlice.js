@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit'
 import { delContactThunk, getContactsThunk, postContactThunk } from 'services/fetchContacts';
 
 const contactInitialState = {
-    contacts: [],
+    items: [],
     isLoading: false,
     error: null
 };
@@ -29,17 +29,17 @@ export const phoneBookSlice = createSlice({
         builder
             .addCase(getContactsThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.contacts = payload;
+                state.items = payload;
                 state.error = null;
             })
             .addCase(postContactThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.contacts = [...state.contacts, payload]
+                state.items = [...state.items, payload]
                 state.error = null;
             })
             .addCase(delContactThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.contacts = state.contacts.filter(contact => contact.id !== payload.id)
+                state.items = state.items.filter(contact => contact.id !== payload.id)
                 state.error = null;
             })
             .addMatcher(isAnyOf(...addStatusToActs('pending')), onPending)
@@ -47,6 +47,6 @@ export const phoneBookSlice = createSlice({
     }
 });
 
-export const getPhoneBookValue = state => state.phoneBook.contacts;
+export const getPhoneBookValue = state => state.phoneBook.items;
 export const getIsLoading = state => state.phoneBook.isLoading;
 export const getError = state => state.phoneBook.error;
